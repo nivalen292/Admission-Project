@@ -16,11 +16,24 @@ MongoClient.connect(connectionURL, function (err, database) {
 });
 
 app.use("/public", express.static("public"));
+app.use("/libs", express.static("node_modules"));
 
 app.get("/", (request, response) => {
+
+    response.sendFile(__dirname + "/public/index.html");
+});
+
+app.get("/api/grades", (request, resposne) => {
+    const gender = request.headers.gender;
+    const examSubject = request.headers.examsubject;
+    const grade = +request.headers.grade;
     let arr;
     const promise = new Promise((resolve, reject) => {
-        db.collection("year2016").find().toArray((err, result) => {
+        db.collection("year2016").find({
+            "gender": gender,
+            "entry": {examSubject}
+        })
+        .toArray((err, result) => {
             if (err) {
                 console.log(err);
             }
@@ -29,11 +42,16 @@ app.get("/", (request, response) => {
             }
         });
     });
-    promise.then((x) => {
-        arr = x;
+    promise.then((value) => {
+        arr = value;
+        arr = arr.filter(course => {
+            let coef = +course.entry[examSubject];
+            if (grade * coef >= course.grade) {
+                return true;
+            }
+        });
         console.log(arr);
     });
-    response.sendFile(__dirname + "/public/index.html");
 });
 
 

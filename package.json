@@ -11,6 +11,8 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
-    "mongodb": "^2.2.29"
+    "mongodb": "^2.2.29",
+    "systemjs": "^0.20.14",
+    "systemjs-plugin-babel": "0.0.25"
   }
 }
