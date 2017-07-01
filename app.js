@@ -25,7 +25,7 @@ app.get("/", (request, response) => {
     response.sendFile(__dirname + "/public/index.html");
 });
 
-app.get("/api/grades", (request, resposne) => {
+app.get("/api/grades", (request, response) => {
     const gender = request.headers.gender;
     const examSubject = request.headers.examsubject;
     const grade = +request.headers.grade;
@@ -55,6 +55,7 @@ app.get("/api/grades", (request, resposne) => {
                 return true;
             }
         });
+        response.status(200).send("done");
         console.log(arr)
     });
 });
