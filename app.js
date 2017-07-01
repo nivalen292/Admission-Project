@@ -28,11 +28,14 @@ app.get("/api/grades", (request, resposne) => {
     const examSubject = request.headers.examsubject;
     const grade = +request.headers.grade;
     let arr;
+
+    const query = {};
+    const prop = "entry." + examSubject;
+    query.gender = gender;
+    query[prop] = { $exists: true, $ne: null };
+
     const promise = new Promise((resolve, reject) => {
-        db.collection("year2016").find({
-            "gender": gender,
-            "entry": {examSubject}
-        })
+        db.collection("year2016").find(query)
         .toArray((err, result) => {
             if (err) {
                 console.log(err);
@@ -46,11 +49,11 @@ app.get("/api/grades", (request, resposne) => {
         arr = value;
         arr = arr.filter(course => {
             let coef = +course.entry[examSubject];
-            if (grade * coef >= course.grade) {
+            if (grade * coef + grade >= course.grade) {
                 return true;
             }
         });
-        console.log(arr);
+        console.log(arr)
     });
 });
 

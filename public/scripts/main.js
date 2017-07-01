@@ -10,5 +10,5 @@ $("#result").on("click", () => {
         gender: gender
     };
     getRequest("/api/grades", headers)
-        .then(value => console.log(value));
+        .then();
 });
