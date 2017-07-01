@@ -77,7 +77,7 @@ app.get("/api/grades", (request, response) => {
                 return true;
             }
         });
-        response.status(200).send("done");
+        response.status(200).send(arr);
         console.log(arr);
     });
 });

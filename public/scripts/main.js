@@ -26,5 +26,5 @@ $("#result").on("click", () => {
         overAllGrade: overAllGrade
     };
     getRequest("/api/grades", headers)
-        .then();
+        .then(value => console.log(value));
 });

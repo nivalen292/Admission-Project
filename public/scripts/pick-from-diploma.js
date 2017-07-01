@@ -31,6 +31,9 @@ function pickFromDiploma(arr, gradeObj, examSubject) {
             case "History":
                 sum += +gradeObj.historyGrade;
                 break;
+            case "Diploma":
+                sum += +gradesObj.overAllGrade;
+                break;
         }
     });
     return sum;
