@@ -7,6 +7,8 @@ app.use(bodyParser.json());
 const MongoClient = require('mongodb').MongoClient;
 const connectionURL = "mongodb://nivalen:123ndb123@ds141232.mlab.com:41232/nivalen-db";
 
+app.set('port', (process.env.PORT || 3000));
+
 let db;
 MongoClient.connect(connectionURL, function (err, database) {
     if (err) {
@@ -57,5 +59,9 @@ app.get("/api/grades", (request, resposne) => {
     });
 });
 
-
-app.listen(3000, () => console.log("Listening on port 3000"));
+app.listen(app.get('port'), (err) => {  
+  if (err) {
+    return console.log('something bad happened', err);
+  }
+  console.log('Server is running at http://localhost:' + app.get('port'));
+});
