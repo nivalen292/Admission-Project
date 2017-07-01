@@ -29,6 +29,27 @@ app.get("/api/grades", (request, response) => {
     const gender = request.headers.gender;
     const examSubject = request.headers.examsubject;
     const grade = +request.headers.grade;
+
+    const mathGrade = +request.headers.mathgrade;
+    const chemistryGrade = +request.headers.chemistrygrade;
+    const literatureGrade = +request.headers.literaturegrade;
+    const physicsGrade = +request.headers.physicsgrade;
+    const englishGrade = +request.headers.englishgrade;
+    const historyGrade = +request.headers.historygrade;
+    const biologyGrade = +request.headers.biologygrade;
+    const overAllGrade = +request.headers.overallgrade;
+
+    const diplomaGrades = {
+        mathGrade: mathGrade,
+        chemistryGrade: chemistryGrade,
+        literatureGrade: literatureGrade,
+        physicsGrade: physicsGrade,
+        englishGrade: englishGrade,
+        historyGrade: historyGrade,
+        biologyGrade: biologyGrade,
+        overAllGrade: overAllGrade
+    };
+
     let arr;
 
     const query = {};
@@ -50,13 +71,14 @@ app.get("/api/grades", (request, response) => {
     promise.then((value) => {
         arr = value;
         arr = arr.filter(course => {
+            const pickFromDiploma = require("./public/scripts/pick-from-diploma").pickFromDiploma;
             let coef = +course.entry[examSubject];
-            if (grade * coef + grade >= course.grade) {
+            if (grade * coef + pickFromDiploma(course.schoolGradeChoice, diplomaGrades, examSubject) >= course.grade) {
                 return true;
             }
         });
         response.status(200).send("done");
-        console.log(arr)
+        console.log(arr);
     });
 });
 

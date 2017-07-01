@@ -1,3 +1,11 @@
-.table-sortable tbody tr {
-    cursor: move;
+label, input[type="text"] {
+    display: block;
+}
+
+h4 {
+    font-weight: bold;
+}
+
+#form {
+    margin: 10px;
 }
