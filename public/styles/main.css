@@ -7,5 +7,18 @@ h4 {
 }
 
 #form {
+    float: left;
     margin: 10px;
+}
+
+#resultTable {
+    margin: 10px;
+    float: right;
+    border: 1px solid black;
+}
+
+#resultTable th {
+    padding: 5px;
+    width: 125px;
+    text-align: center;
 }

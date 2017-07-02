@@ -73,11 +73,15 @@ app.get("/api/grades", (request, response) => {
         arr = arr.filter(course => {
             const pickFromDiploma = require("./public/scripts/pick-from-diploma").pickFromDiploma;
             let coef = +course.entry[examSubject];
-            if (grade * coef + pickFromDiploma(course.schoolGradeChoice, diplomaGrades, examSubject) >= course.grade) {
+            const myScore = grade * coef + pickFromDiploma(course.schoolGradeChoice, diplomaGrades, examSubject);
+            if (myScore >= course.grade) {
                 return true;
             }
         });
-        response.status(200).send(arr);
+        const toReturn = {
+            "year2016": arr
+        };
+        response.status(200).send(toReturn);
         console.log(arr);
     });
 });

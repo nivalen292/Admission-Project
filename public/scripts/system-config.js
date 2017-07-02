@@ -12,7 +12,8 @@ SystemJS.config({
 
   // app start script
   'main': '/public/scripts/main.js',
-  'requester': '/public/scripts/requester.js'
+  'requester': '/public/scripts/requester.js',
+  'showResults': '/public/scripts/show-results.js'
 
 
   //Library files

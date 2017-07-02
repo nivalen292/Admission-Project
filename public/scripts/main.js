@@ -1,4 +1,5 @@
 import { get as getRequest } from 'requester';
+import { showResults } from 'showResults';
 
 $("#result").on("click", () => {
     const examSubject = $("#choice").val();
