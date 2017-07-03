@@ -75,6 +75,7 @@ app.get("/api/grades", (request, response) => {
             let coef = +course.entry[examSubject];
             const myScore = grade * coef + pickFromDiploma(course.schoolGradeChoice, diplomaGrades, examSubject);
             if (myScore >= course.grade) {
+                course.myScore = myScore;
                 return true;
             }
         });
