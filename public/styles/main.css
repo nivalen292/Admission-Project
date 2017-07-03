@@ -11,14 +11,32 @@ h4 {
     margin: 10px;
 }
 
+aside {
+    float:right;
+}
+
+aside nav ul {
+    margin: 10px;
+    list-style-type: none;
+}
+
+aside nav ul li {
+    display: inline-block;
+    margin-left: 10px;
+}
+
 #resultTable {
     margin: 10px;
-    float: right;
     border: 1px solid black;
 }
 
-#resultTable th {
+#resultTable th, #resultTable td {
     padding: 5px;
     width: 125px;
     text-align: center;
+}
+
+.selected-span {
+    font-weight: bold;
+    color: green;
 }

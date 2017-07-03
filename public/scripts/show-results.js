@@ -4,15 +4,16 @@ export function loadTemplate(templateName, data, selector) {
     let template;
     let compiledTemplate;
     let $element;
-    getRequest(`/views/${templateName}.handlebars`)
+    getRequest(`/public/templates/${templateName}.handlebars`)
         .then(value => {
             template = value;
             compiledTemplate = Handlebars.compile(template);
             $element = $(selector);
-            $element.html($element.html() + compiledTemplate(data));
+            $element.html(compiledTemplate(data));
         });
 }
 
-export function showResults(obj, key) {
-    loadTemplate("year-template", obj, "#resultTable tbody");
+export function showResults(obj, year) {
+    const yearParam = "year" + year;
+    loadTemplate(yearParam, obj, "#resultTable tbody");
 }

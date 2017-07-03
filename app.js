@@ -79,7 +79,7 @@ app.get("/api/grades", (request, response) => {
             }
         });
         const toReturn = {
-            "year2016": arr
+            year2016: arr
         };
         response.status(200).send(toReturn);
         console.log(arr);

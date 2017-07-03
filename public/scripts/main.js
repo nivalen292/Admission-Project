@@ -27,5 +27,8 @@ $("#result").on("click", () => {
         overAllGrade: overAllGrade
     };
     getRequest("/api/grades", headers)
-        .then(value => console.log(value));
+        .then(value => {
+            console.log(value);
+            showResults(value, "2016");
+        });
 });
