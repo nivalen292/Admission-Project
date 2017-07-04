@@ -13,6 +13,7 @@ h4 {
 #form {
     float: left;
     margin: 10px;
+    width: 200px;
 }
 
 aside {
@@ -43,4 +44,53 @@ aside nav ul li {
 .selected-span {
     font-weight: bold;
     color: green;
+}
+
+
+
+/*Responsive*/
+
+@media (max-width: 767px) {
+    #resultTable {
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    #resultTable {
+        width: 100%;
+        margin: 10 auto;
+    }
+
+    #resultTable tr th:nth-last-of-type(1), #resultTable tr th:nth-last-of-type(2),
+    #resultTable tr th:nth-last-of-type(3), 
+    #resultTable tr td:nth-last-of-type(1), #resultTable tr td:nth-last-of-type(2),
+    #resultTable tr td:nth-last-of-type(3) {
+        display: none;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 535px) {
+    #resultTable {
+        width: 100%;
+        margin: 10 auto;
+    }
+    #form {
+        width: 100%;
+    }
+
+    #form input[type=text] {
+        width: 100%;
+    }
+
+    #form label {
+        margin: 0 auto;
+    }
+
+    #resultTable tr th:nth-last-of-type(1), #resultTable tr th:nth-last-of-type(2),
+    #resultTable tr th:nth-last-of-type(3), 
+    #resultTable tr td:nth-last-of-type(1), #resultTable tr td:nth-last-of-type(2),
+    #resultTable tr td:nth-last-of-type(3) {
+        display: none;
+    }
 }
