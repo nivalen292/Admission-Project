@@ -48,7 +48,7 @@ aside nav ul li {
 
 
 
-/*Responsive*/
+/*Responsive
 
 @media (max-width: 767px) {
     #resultTable {
@@ -93,4 +93,4 @@ aside nav ul li {
     #resultTable tr td:nth-last-of-type(3) {
         display: none;
     }
-}
+}*/
