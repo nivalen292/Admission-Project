@@ -37,6 +37,8 @@ app.get("/api/grades", (request, response) => {
     const englishGrade = +request.headers.englishgrade;
     const historyGrade = +request.headers.historygrade;
     const biologyGrade = +request.headers.biologygrade;
+    const ITGrade = +request.headers.itgrade;
+    const informaticsGrade = +request.headers.informaticsgrade;
     const overAllGrade = +request.headers.overallgrade;
 
     const diplomaGrades = {
@@ -47,6 +49,8 @@ app.get("/api/grades", (request, response) => {
         englishGrade: englishGrade,
         historyGrade: historyGrade,
         biologyGrade: biologyGrade,
+        ITGrade: ITGrade,
+        informaticsGrade: informaticsGrade,
         overAllGrade: overAllGrade
     };
 

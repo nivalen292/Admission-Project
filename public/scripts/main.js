@@ -11,6 +11,8 @@ $("#result").on("click", () => {
     const englishGrade = $("#englishField").val();
     const historyGrade = $("#historyField").val();
     const biologyGrade = $("#biologyField").val();
+    const ITGrade = $("#ITField").val();
+    const informaticsGrade = $("#informaticsField").val();
     const overAllGrade = $("#overAllGrade").val();
     const gender = $('input[name=gender]:checked').val();
     let headers = {
@@ -24,6 +26,8 @@ $("#result").on("click", () => {
         englishGrade: englishGrade,
         historyGrade: historyGrade,
         biologyGrade: biologyGrade,
+        ITGrade: ITGrade,
+        informaticsGrade: informaticsGrade,
         overAllGrade: overAllGrade
     };
     getRequest("/api/grades", headers)
